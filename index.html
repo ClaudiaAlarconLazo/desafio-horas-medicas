@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Horas Médicas</title>
+  <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
 </head>
 <body>
   <header>
@@ -16,21 +17,21 @@
 
   <main>
     <h2>Reserva de hora médica</h2>
-    <form onsubmit="almacenarHora">
+    <form onsubmit= "almacenarHora(event)">
       <h3>Registro de paciente</h3>
       <div>
         <label for="name">Nombre</label>
-        <input type="text" id="name" placeholder="Escriba su nombre" required> 
+        <input type="text" name="name" id="name" placeholder="Escriba su nombre" required> 
       </div>
 
       <div>
         <label for="rut">RUT</label>
-        <input type="text" id="rut" placeholder="Escriba su RUT" required> 
+        <input type="text" name="rut" id="rut" placeholder="Escriba su RUT" required> 
       </div>
 
       <div>
         <label for="name">Género</label>
-        <select id="gender">
+        <select name="gender" id="gender">
           <option value="">Seleccione</option>
           <option value="Femenino">Femenino</option>
           <option value="Masculino">Masculino</option>
@@ -39,23 +40,23 @@
 
       <div>
         <label for="date">Fecha de nacimiento</label>
-        <input type="date" id="date" required> 
+        <input type="date" name="date" id="date" required> 
       </div>
 
       <div>
         <label for="diseases">Enfermedades crónicas</label>
-        <textarea id="diseases" cols="30" rows="10" required></textarea>  
+        <textarea name="diseases" id="diseases" cols="30" rows="10" required></textarea>  
       </div>
       
       <div>
         <label for="drugs">Medicamentos que utiliza</label>
-        <textarea id="drugs" cols="30" rows="10" required></textarea>  
+        <textarea name="drugs" id="drugs" cols="30" rows="10" required></textarea>  
       </div>
 
       <h3>Registro de hora médica</h3>
       <div>
         <label for="doctor">Médico</label>
-        <select id="doctor">
+        <select name="doctor" id="doctor">
           <option value="">Seleccione</option>
           <option value="Roberto Araneda">Roberto Araneda</option>
           <option value="Javiera Alarcón">Javiera Alarcón</option>
@@ -64,12 +65,12 @@
 
       <div>
         <label for="schedule-date">Fecha de atención</label>
-        <input type="date" id="schedule-date" required> 
+        <input type="date" name="schedule_date" id="schedule-date" required> 
       </div>
 
       <div>
         <label for="schedule-time">Hora de atención</label>
-        <select id="schedule-time">
+        <select name="schedule_time" id="schedule-time">
           <option value="">Seleccione</option>
           <option value="08:00">08:00</option>
           <option value="09:00">09:00</option>
@@ -83,7 +84,7 @@
         </select>
       </div>
       <div>
-        <button>Enviar</button>
+        <button type="submit">Enviar</button>
       </div>
     </form>
   </main>
@@ -92,5 +93,6 @@
     <p>©Copyright 2022 Claudia Alarcón Lazo</p>
   </footer>
 
+  <script src="./assets/js/index.js"></script>
 </body>
 </html>

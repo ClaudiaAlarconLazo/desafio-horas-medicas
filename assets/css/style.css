@@ -48,6 +48,7 @@ button {
   margin-top: 30px;
   margin-bottom: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 h3 {
