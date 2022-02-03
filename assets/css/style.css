@@ -55,3 +55,32 @@ h3 {
   margin-top: 50px;
 }
 
+.table {
+  margin: auto;
+  width: 75%;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,td {
+  border: 1px solid black;
+  background-color: whitesmoke;
+}
+
+table button {
+  width: 50px;
+  background-color: darkgray;
+}
+
+#detail {
+  width: 50%;
+}
+
+#detail th {
+  text-align: left;
+  width: 40%;
+}

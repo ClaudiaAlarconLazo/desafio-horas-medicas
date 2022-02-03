@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Horas Médicas</title>
+    <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <h1>Clínica Buena Salud</h1>
+      <h2>Listado de horas médicas</h3>
+    </header>
+
+    <main>
+
+      <button onclick="redirectSchedule()">Volver</button>
+
+      <div id="detail">
+        <h3>Datos del paciente</h3>
+        <table>
+          <tr>
+            <th>Paciente</th>
+            <td id="name">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>RUT</th>
+            <td id="rut">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Género</th>
+            <td id="gender">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Fecha de nacimiento</th>
+            <td id="date">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Enfermedades</th>
+            <td id="diseases">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Medicamentos</th>
+            <td id="drugs">&nbsp;</td>
+          </tr>
+        </table>
+
+        <h3>Datos de la hora de atención</h3>
+        <table>
+          <tr>
+            <th>Médico</th>
+            <td id="doctor">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Fecha de atención</th>
+            <td id="schedule-date">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>Hora de atención</th>
+            <td id="schedule-time">&nbsp;</td>
+          </tr>
+        </table>
+
+      </div>
+
+    </main>
+
+
+    <footer>
+      <p>©Copyright 2022 Claudia Alarcón Lazo</p>
+    </footer>
+  
+    <script src="./assets/js/index.js"></script>
+    <script>
+      detail();
+    </script>
+  
+  
+</body>
+</html>

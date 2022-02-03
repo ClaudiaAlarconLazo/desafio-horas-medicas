@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Horas Médicas</title>
+    <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <h1>Clínica Buena Salud</h1>
+      <h2>Listado de horas médicas</h3>
+    </header>
+
+    <main>
+
+      <button onclick="redirectRegister()">Reservar hora</button>
+
+      <div class="table">
+        <table>
+          <tr>
+            <th>N°</th>
+            <th>Paciente</th>
+            <th>RUT</th>
+            <th>Médico</th>
+            <th>Fecha de atención</th>
+            <th>Hora de atención</th>
+            <th>Opciones</th>
+          </tr>
+          <tbody id="schedule">
+  
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+
+    <footer>
+      <p>©Copyright 2022 Claudia Alarcón Lazo</p>
+    </footer>
+  
+    <script src="./assets/js/index.js"></script>
+    <script>
+      schedule();
+    </script>
+  
+  
+</body>
+</html>
