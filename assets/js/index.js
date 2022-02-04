@@ -89,19 +89,20 @@ function schedule() {
 
 };
 
-function redirectRegister() {
-  window.location.href = "/desafio-horas-medicas/registro.html"
-};
-
 
 function redirectDetail(id) {
   window.location.href = `/desafio-horas-medicas/detalle-agenda.html?id=${id}`;
-
 };
 
+/*
+Métodos para redirigir
 function redirectSchedule() {
   window.location.href = `/desafio-horas-medicas/agenda.html`;
 }
+
+function redirectRegister() {
+  window.location.href = "/desafio-horas-medicas/registro.html"
+};*/
 
 
 function detail() {
@@ -110,40 +111,49 @@ function detail() {
   const id = urlParams.get('id');
   console.log(id);
 
-  supabase
-  .from('hora_medica')
-  .select("*")
+  if (!id) {
+    alert('Parámetro de búsqueda no encontrado.');
+    window.location.href = `/desafio-horas-medicas/agenda.html`;
+  } else {
+    supabase
+    .from('hora_medica')
+    .select("*")
 
-  // Filters
-  .eq('id', id)
-  .then(response => {
-    const { data } = response;
-    console.log(data);
-    //console.log(response);
-    const name = document.getElementById('name');
-    const rut = document.getElementById('rut');
-    const gender = document.getElementById('gender');
-    const date = document.getElementById('date');
-    const diseases = document.getElementById('diseases');
-    const drugs = document.getElementById('drugs');
-    const doctor = document.getElementById('doctor');
-    const scheduleDate = document.getElementById('schedule-date');
-    const scheduleTime = document.getElementById('schedule-time');
+    // Filters
+    .eq('id', id)
+    .then(response => {
+      const { data } = response;
+      console.log(data);
+      const message = document.getElementById('message');
+      if (data.length === 0) {
+        message.innerHTML = 'Paciente no encontrado.';
+      } else {
+        const name = document.getElementById('name');
+        const rut = document.getElementById('rut');
+        const gender = document.getElementById('gender');
+        const date = document.getElementById('date');
+        const diseases = document.getElementById('diseases');
+        const drugs = document.getElementById('drugs');
+        const doctor = document.getElementById('doctor');
+        const scheduleDate = document.getElementById('schedule-date');
+        const scheduleTime = document.getElementById('schedule-time');
 
-    name.innerHTML = data[0].nombre;
-    rut.innerHTML = data[0].rut;
-    gender.innerHTML = data[0].genero;
-    date.innerHTML = data[0].fecha_nacimiento;
-    diseases.innerHTML = data[0].enfermedades;
-    drugs.innerHTML = data[0].medicamentos;
-    doctor.innerHTML = data[0].medico;
-    scheduleDate.innerHTML = data[0].fecha_atencion;
-    scheduleTime.innerHTML = data[0].hora_atencion;
-  })
-  .catch(error => console.log(error))
+        name.innerHTML = data[0].nombre;
+        rut.innerHTML = data[0].rut;
+        gender.innerHTML = data[0].genero;
+        date.innerHTML = data[0].fecha_nacimiento;
+        diseases.innerHTML = data[0].enfermedades;
+        drugs.innerHTML = data[0].medicamentos;
+        doctor.innerHTML = data[0].medico;
+        scheduleDate.innerHTML = data[0].fecha_atencion;
+        scheduleTime.innerHTML = data[0].hora_atencion;
+      }
+    })
+    .catch(error => console.log(error))
+  }
+
+  
 
  
-
-
 };
 

@@ -1,12 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0px 20px;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: right;
+}
+
+.nav-title {
+  float: left;
+  margin-top: 5px;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  color: white;
+  background-color: #04AA6D;
+}
+
 main {
-  background-color: powderblue;
-  border: solid 2px black;
-  padding: 16px;
-  border-radius: 20px;
+  background-color: rgb(234, 245, 247);
+  height: calc(100vh - 108px);
+}
+
+.specialities {
+  display: flex;
+}
+
+article {
+  background-color: red;
+  font-size: larger;
+  margin: 20px 20px;
+  width: 30%;
+  padding: 2%;
+}
+
+article h3 {
+  padding-bottom: 15px;
+}
+
+footer {
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+  width: 100%;
+  position:fixed;
 }
 
 label {
@@ -17,7 +74,7 @@ label {
 }
 
 input {
-  width: 50%;
+  width: 100%;
   box-sizing: border-box;
   padding: 5px;
 }
@@ -33,12 +90,12 @@ input[type="date"] {
 }
 */
 select {
-  width: 50%;
+  width: 100%;
   padding: 5px;
 }
 
 textarea {
-  width: 50%;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -49,10 +106,6 @@ button {
   margin-bottom: 20px;
   font-weight: bold;
   cursor: pointer;
-}
-
-h3 {
-  margin-top: 50px;
 }
 
 .table {
@@ -76,11 +129,29 @@ table button {
   background-color: darkgray;
 }
 
-#detail {
+.detail {
   width: 50%;
+  margin: auto;
+  padding-top: 20px;
 }
 
-#detail th {
+.detail h3 {
+  padding-top: 20px;
+}
+
+.detail th {
   text-align: left;
   width: 40%;
 }
+
+.form {
+  padding-top: 10px;
+  width: 40%;
+  margin: auto;
+}
+
+#message {
+  color: red;
+  font-weight: bold;
+}
+

@@ -11,83 +11,90 @@
 </head>
 <body>
   <header>
-    <h1>Clínica Buena Salud</h1>
-    <h2>Registro de horas médicas</h3>
+    <ul>
+      <li class="nav-title"><h2>Clínica Buena Salud</h2></li>
+      <li><a href="registro.html">Reserva de hora</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a class="active" href="index.html">Inicio</a></li>
+    </ul>
+</header>
 
-  </header>
 
   <main>
-    <h2>Reserva de hora médica</h2>
-    <form onsubmit= "almacenarHora(event)">
-      <h3>Registro de paciente</h3>
-      <div>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" placeholder="Escriba su nombre" required> 
-      </div>
+    <div class="form">
+      <h2>Reserva de hora médica</h2>
+      <form onsubmit= "almacenarHora(event)">
+        <h3>Registro de paciente</h3>
+        <div>
+          <label for="name">Nombre</label>
+          <input type="text" name="name" id="name" placeholder="Escriba su nombre" required> 
+        </div>
+  
+        <div>
+          <label for="rut">RUT</label>
+          <input type="text" name="rut" id="rut" placeholder="Escriba su RUT" required> 
+        </div>
+  
+        <div>
+          <label for="gender">Género</label>
+          <select name="gender" id="gender">
+            <option value="">Seleccione</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+          </select>
+        </div>
+  
+        <div>
+          <label for="date">Fecha de nacimiento</label>
+          <input type="date" name="date" id="date" required> 
+        </div>
+  
+        <div>
+          <label for="diseases">Enfermedades crónicas</label>
+          <textarea name="diseases" id="diseases" cols="30" rows="3" required></textarea>  
+        </div>
+        
+        <div>
+          <label for="drugs">Medicamentos que utiliza</label>
+          <textarea name="drugs" id="drugs" cols="30" rows="3" required></textarea>  
+        </div>
+  
+        <h3>Registro de hora médica</h3>
+        <div>
+          <label for="doctor">Médico</label>
+          <select name="doctor" id="doctor">
+            <option value="">Seleccione</option>
+            <option value="Roberto Araneda">Roberto Araneda</option>
+            <option value="Javiera Alarcón">Javiera Alarcón</option>
+          </select>
+        </div>
+  
+        <div>
+          <label for="schedule-date">Fecha de atención</label>
+          <input type="date" name="schedule_date" id="schedule-date" required> 
+        </div>
+  
+        <div>
+          <label for="schedule-time">Hora de atención</label>
+          <select name="schedule_time" id="schedule-time">
+            <option value="">Seleccione</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
 
-      <div>
-        <label for="rut">RUT</label>
-        <input type="text" name="rut" id="rut" placeholder="Escriba su RUT" required> 
-      </div>
-
-      <div>
-        <label for="gender">Género</label>
-        <select name="gender" id="gender">
-          <option value="">Seleccione</option>
-          <option value="Femenino">Femenino</option>
-          <option value="Masculino">Masculino</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="date">Fecha de nacimiento</label>
-        <input type="date" name="date" id="date" required> 
-      </div>
-
-      <div>
-        <label for="diseases">Enfermedades crónicas</label>
-        <textarea name="diseases" id="diseases" cols="30" rows="10" required></textarea>  
-      </div>
-      
-      <div>
-        <label for="drugs">Medicamentos que utiliza</label>
-        <textarea name="drugs" id="drugs" cols="30" rows="10" required></textarea>  
-      </div>
-
-      <h3>Registro de hora médica</h3>
-      <div>
-        <label for="doctor">Médico</label>
-        <select name="doctor" id="doctor">
-          <option value="">Seleccione</option>
-          <option value="Roberto Araneda">Roberto Araneda</option>
-          <option value="Javiera Alarcón">Javiera Alarcón</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="schedule-date">Fecha de atención</label>
-        <input type="date" name="schedule_date" id="schedule-date" required> 
-      </div>
-
-      <div>
-        <label for="schedule-time">Hora de atención</label>
-        <select name="schedule_time" id="schedule-time">
-          <option value="">Seleccione</option>
-          <option value="08:00">08:00</option>
-          <option value="09:00">09:00</option>
-          <option value="10:00">10:00</option>
-          <option value="11:00">11:00</option>
-          <option value="12:00">12:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="16:00">16:00</option>
-          <option value="17:00">17:00</option>
-        </select>
-      </div>
-      <div>
-        <button type="submit">Enviar</button>
-      </div>
-    </form>
   </main>
   
   <footer>
