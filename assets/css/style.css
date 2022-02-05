@@ -35,7 +35,7 @@ header {
 }
 
 header a:hover {
-  background-color: #666;
+  background-color:darkgray;
   color: white;
 }
 
@@ -47,7 +47,6 @@ header a:hover {
 ul {
   list-style-type: none;
   padding: 0px 20px;
-  overflow: hidden;
 }
 
 li {
@@ -90,7 +89,6 @@ main h2 {
   margin-left:20px;
   margin-right: 20px;
   background-color: white;
-  opacity: 0.9;
   border-radius: 5px;
 }
 
@@ -126,7 +124,6 @@ article {
   padding: 2%;
   text-align: justify;
   background-color: white;
-  opacity: 0.9;
   border-radius: 5px;
 }
 
