@@ -23,6 +23,10 @@ body {
   left: 0;
 }
 
+section {
+  overflow: hidden;
+}
+
 /*Barra de navegación superior*/
 header {
   overflow: hidden;
@@ -73,13 +77,10 @@ main {
   background-color: rgba(0, 0, 0, 0);
 }
 
-main h2 {
-  text-indent: 50px;
-}
-
 .index {
  padding: 20px 20px;
  color: #f3f3f3;
+ text-indent: 50px;
 }
 
 .about-us {
@@ -181,7 +182,6 @@ footer {
 
 /*Formulario de registro*/
 .form {
-  padding-top: 10px;
   width: 40%;
   margin: auto;
   padding: 3%;
@@ -237,6 +237,7 @@ textarea {
 
 /*Tabla de listado de reservas*/
 .table {
+  overflow: scroll;
   margin: auto;
   width: 75%;
   padding: 3%;
@@ -304,8 +305,47 @@ table button {
   font-weight: bold;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 768px) {
+  /*Contenido de la página*/
+  .about-us {
+    height: 35vh;
+  }
+
+  .specialities, .contact {
+    display: block;
+    }
+
   article {
-    font-size: 12px;
+    margin: 10px 20px;
+    width: 90%;
+  }
+
+  .ubication, .contact-form {
+    width: 90%;
+  }
+
+  .ubication p {
+    font-size: 14px;
+  }
+
+  textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 5px 5px 5px;
+  }
+
+  /*Formulario de registro*/
+  .form {
+    width: 60%;
+  }
+
+  /*Tabla de listado de reservas*/
+  .table {
+    width: 95%;
+    padding: 1%;
+  }
+
+  /*Detalle de hora reservada*/
+  .detail {
+    width: 80%;
   }
 }
