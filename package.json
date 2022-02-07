@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas/issues"
   },
-  "homepage": "https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas#readme"
+  "homepage": "https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.19"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  }
 }
