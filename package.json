@@ -1,0 +1,19 @@
+{
+  "name": "desafio-horas-medicas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas.git"
+  },
+  "author": "Claudia Alarcón Lazo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas/issues"
+  },
+  "homepage": "https://github.com/ClaudiaAlarconLazo/desafio-horas-medicas#readme"
+}
