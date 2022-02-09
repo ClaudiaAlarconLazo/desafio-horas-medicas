@@ -6,6 +6,8 @@
   background-position: center;
 }
 
+/*comentario*/
+
 .hero::before {
   content: "";
   width: 100%;
