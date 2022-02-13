@@ -16,3 +16,25 @@
   opacity: 0.4;
   position: absolute;
 }
+
+.contact {
+  height: 250px;
+}
+
+
+@media (min-width: 768px) {
+  .speciality {
+    height: 280px;
+    overflow: hidden;
+  }
+}
+
+
+
+
+
+
+
+
+
+

@@ -46,7 +46,6 @@ function almacenarHora(event) {
   })
   .catch(error => console.log(error));
 
-
   console.log(data);
 
 };
@@ -151,9 +150,6 @@ function detail() {
     })
     .catch(error => console.log(error))
   }
-
-  
-
  
 };
 
@@ -181,5 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
 });
