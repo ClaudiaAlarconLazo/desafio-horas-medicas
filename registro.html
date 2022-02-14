@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Horas Médicas</title>
+    <link rel="stylesheet" href="./assets/css/style.css">    
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+    <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  </head>
+<body>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar has-background-light has-text-grey-dark">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <p class="title has-text-grey-dark">
+                Clínica Santa María
+              </p>
+            </a>
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu has-background-light">
+            <div class="navbar-end has-background-light">
+              <a class="navbar-item" href="index.html">
+                Home
+              </a>
+              <a class="navbar-item is-hidden" href="agenda.html">
+                Agenda
+              </a>
+              <a class="navbar-item" href="registro.html">
+                Reserva de hora
+              </a>
+              <a class="navbar-item" href="login.html">
+                Iniciar sesión
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <div class="card p-4">
+              <p class="is-size-4 has-text-weight-bold">Reserva de hora médica</p>
+                <p class="is-size-5 has-text-weight-bold pt-5">Datos del paciente</p>
+                <div class="field is-horizontal pt-3">
+                  <div class="field-body">
+                    <div class="field">
+                      <label class="label is-size-7">Nombre</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="Escriba su nombre" required>
+                      </div>
+                    </div>
+    
+                    <div class="field">
+                      <label class="label is-size-7">RUT</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="Escriba su RUT" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal pt-3">
+                  <div class="field-body">
+                    <div class="field">
+                      <label class="label is-size-7">Fecha de nacimiento</label>
+                      <div class="control">
+                        <input class="input" type="date" placeholder="Escriba su RUT" required>
+                      </div>
+                    </div> 
+                    
+                    <div class="field">
+                      <label class="label is-size-7">Género</label>
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select>
+                            <option value="">Seleccione</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>   
+                  </div>
+                </div>
+
+                <div class="field is-horizontal pt-3">
+                  <div class="field-body">
+                    <div class="field">
+                      <label class="label is-size-7">Enfermedades crónicas</label>
+                      <div class="control">
+                        <textarea class="textarea" placeholder="" rows="3" required></textarea>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label is-size-7">Medicamentos que utiliza</label>
+                      <div class="control">
+                        <textarea class="textarea" placeholder="" rows="3" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="is-size-5 has-text-weight-bold pt-5">Reserva de atención</p>
+                <div class="field is-horizontal pt-3">
+                  <div class="field-body">
+                    <div class="field">
+                      <label class="label is-size-7">Profesional</label>
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select>
+                            <option value="">Seleccione</option>
+                            <option value="Roberto Araneda">Roberto Araneda</option>
+                            <option value="Javiera Alarcón">Javiera Alarcón</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal pt-3">
+                  <div class="field-body">
+                    <div class="field">
+                      <label class="label is-size-7">Fecha de atención</label>
+                      <div class="control">
+                        <input class="input" type="date" placeholder="" required>
+                      </div>
+                    </div> 
+                    
+                    <div class="field">
+                      <label class="label is-size-7">Hora de atención</label>
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select>
+                            <option value="">Seleccione</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal pt-5">
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control">
+                        <button class="button is-primary">
+                          Enviar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="card p-4">
+                <p class="is-size-4 has-text-weight-bold pb-3">Reserva de hora médica</p>
+                <p class="is-size-5 has-text-weight-bold pb-3">Datos del paciente</p>
+                  <div class="columns">
+                    <div class="column">
+                      <div class="field">
+                        <label class="label is-size-7">Nombre</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Escriba su nombre" required>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label is-size-7">Género</label>
+                        <div class="control">
+                          <div class="select is-fullwidth">
+                            <select>
+                              <option value="">Seleccione</option>
+                              <option value="Femenino">Femenino</option>
+                              <option value="Masculino">Masculino</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="column">
+                      <div class="field">
+                        <label class="label is-size-7">RUT</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Escriba su RUT" required>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label is-size-7">Fecha de nacimiento</label>
+                        <div class="control">
+                          <input class="input" type="date" placeholder="Escriba su RUT" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+
+    <div class="hero-foot has-background-light has-text-grey-dark p-4">
+      <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+          <p>©Copyright 2022 Claudia Alarcón Lazo</p>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <script src="./assets/js/index.js"></script>
+</body>
+</html>
