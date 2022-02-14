@@ -4,54 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Horas Médicas</title>
+    <link rel="stylesheet" href="./assets/css/style.css">    
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
     <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   </head>
-  <body>
-    <header>
-      <ul>
-        <li class="nav-title"><h2>Clínica Buena Salud</h2></li>
-        <li><a href="registro.html">Reserva de hora</a></li>
-        <li><a class="active" href="agenda.html">Agenda</a></li>
-        <li><a href="index.html">Inicio</a></li>
-      </ul>
-  </header>
-
-
-    <main>
-
-        <div class="table">
-          <h3>Listado de pacientes con reserva de hora</h3>
-          <table>
-            <tr>
-              <th>N°</th>
-              <th>Paciente</th>
-              <th>RUT</th>
-              <th>Médico</th>
-              <th>Fecha de atención</th>
-              <th>Hora de atención</th>
-              <th>Opciones</th>
-            </tr>
-            <tbody id="schedule">
-    
-            </tbody>
-          </table>
+<body>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar has-background-light has-text-grey-dark">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <p class="title has-text-grey-dark">
+                Clínica Santa María
+              </p>
+            </a>
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu has-background-light">
+            <div class="navbar-end has-background-light">
+              <a class="navbar-item" href="index.html">
+                Home
+              </a>
+              <a class="navbar-item is-hidden" href="agenda.html">
+                Agenda
+              </a>
+              <a class="navbar-item" href="registro.html">
+                Reserva de hora
+              </a>
+              <a class="navbar-item" href="login.html">
+                Iniciar sesión
+              </a>
+            </div>
+          </div>
         </div>
+      </nav>
+    </div>
 
-    </main>
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-12 is-offset-0">
+            <div class="card p-6 table">
+              <p class="is-size-4 has-text-weight-bold">Listado de pacientes con reserva de hora</p>
+              <div class="table-container pt-6">
+                  <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>N°</th>
+                        <th>Paciente</th>
+                        <th>RUT</th>
+                        <th>Médico</th>
+                        <th>Fecha de atención</th>
+                        <th>Hora de atención</th>
+                        <th>Opciones</th>
+                      </tr>  
+                    </thead>
+      
+                    <tbody id="schedule">
+            
+                    </tbody>
+                  </table>
+              </div>
+
+            </div>
 
 
-    <footer>
-      <p>©Copyright 2022 Claudia Alarcón Lazo</p>
-    </footer>
-  
-    <script src="./assets/js/index.js"></script>
-    <script>
-      schedule();
-    </script>
-  
-  
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="hero-foot has-background-light has-text-grey-dark p-4">
+      <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+          <p>©Copyright 2022 Claudia Alarcón Lazo</p>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <script src="./assets/js/index.js"></script>
+  <script>
+    schedule();
+  </script>
 </body>
 </html>
