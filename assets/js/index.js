@@ -41,7 +41,7 @@ function almacenarHora(event) {
   ])
   .then(response => {
     alert('Reserva de hora exitosa');
-    window.location.href = "/desafio-horas-medicas/agenda.html";
+    window.location.href = "agenda.html";
     console.log(response)
   })
   .catch(error => console.log(error));
@@ -154,7 +154,9 @@ function detail() {
 };
 
 
+// Funciones para dar animación al html
 document.addEventListener('DOMContentLoaded', () => {
+  load_footer();
 
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -178,3 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Función para replicar footer en todos los html
+async function load_footer(){
+  const footer = document.getElementById('footer');
+  footer.innerHTML = await (await fetch('./partials/footer.html')).text();
+}

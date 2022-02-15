@@ -53,76 +53,82 @@
         <div class="columns">
           <div class="column is-8 is-offset-2">
             <div class="card p-4">
-              <p class="is-size-4 has-text-weight-bold">Reserva de hora médica</p>
-                <p class="is-size-5 has-text-weight-bold pt-5">Datos del paciente</p>
-                <div class="field is-horizontal pt-3">
-                  <div class="field-body">
+              <p class="is-size-4 has-text-weight-bold pb-5">Reserva de hora médica</p>
+
+              <form onsubmit="almacenarHora(event)">
+                <p class="is-size-5 has-text-weight-bold pb-3">Datos del paciente</p>
+
+                <div class="columns is-multiline">
+  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Nombre</label>
                       <div class="control">
-                        <input class="input" type="text" placeholder="Escriba su nombre" required>
-                      </div>
-                    </div>
-    
-                    <div class="field">
-                      <label class="label is-size-7">RUT</label>
-                      <div class="control">
-                        <input class="input" type="text" placeholder="Escriba su RUT" required>
+                        <input name="name" class="input" type="text" placeholder="Escriba su nombre" required>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="field is-horizontal pt-3">
-                  <div class="field-body">
+                  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
-                      <label class="label is-size-7">Fecha de nacimiento</label>
+                      <label class="label is-size-7">RUT</label>
                       <div class="control">
-                        <input class="input" type="date" placeholder="Escriba su RUT" required>
+                        <input name="rut" class="input" type="text" placeholder="Escriba su RUT" required>
                       </div>
-                    </div> 
-                    
+                    </div>
+                  </div>
+                  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Género</label>
                       <div class="control">
                         <div class="select is-fullwidth">
-                          <select>
+                          <select name="gender">
                             <option value="">Seleccione</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Masculino">Masculino</option>
                           </select>
                         </div>
                       </div>
-                    </div>   
+                    </div>
                   </div>
-                </div>
-
-                <div class="field is-horizontal pt-3">
-                  <div class="field-body">
+                  
+                  <div class="column is-half-desktop is-half-tablet">
+                    <div class="field">
+                      <label class="label is-size-7">Fecha de nacimiento</label>
+                      <div class="control">
+                        <input name="date" class="input" type="date" placeholder="Escriba su RUT" required>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Enfermedades crónicas</label>
                       <div class="control">
-                        <textarea class="textarea" placeholder="" rows="3" required></textarea>
+                        <textarea name="diseases" class="textarea" placeholder="" rows="3" required></textarea>
                       </div>
                     </div>
-
+                  </div>
+  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Medicamentos que utiliza</label>
                       <div class="control">
-                        <textarea class="textarea" placeholder="" rows="3" required></textarea>
+                        <textarea name="drugs" class="textarea" placeholder="" rows="3" required></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <p class="is-size-5 has-text-weight-bold pt-5">Reserva de atención</p>
-                <div class="field is-horizontal pt-3">
-                  <div class="field-body">
+  
+                <p class="is-size-5 has-text-weight-bold pb-3 pt-2">Reserva de hora</p>
+                <div class="columns is-multiline">
+                  <div class="column is-full-desktop is-full-tablet">
                     <div class="field">
                       <label class="label is-size-7">Profesional</label>
                       <div class="control">
                         <div class="select is-fullwidth">
-                          <select>
+                          <select name="doctor">
                             <option value="">Seleccione</option>
                             <option value="Roberto Araneda">Roberto Araneda</option>
                             <option value="Javiera Alarcón">Javiera Alarcón</option>
@@ -131,22 +137,22 @@
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="field is-horizontal pt-3">
-                  <div class="field-body">
+  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Fecha de atención</label>
                       <div class="control">
-                        <input class="input" type="date" placeholder="" required>
+                        <input name="schedule_date" class="input" type="date" placeholder="" required>
                       </div>
                     </div> 
-                    
+                  </div>
+  
+                  <div class="column is-half-desktop is-half-tablet">
                     <div class="field">
                       <label class="label is-size-7">Hora de atención</label>
                       <div class="control">
                         <div class="select is-fullwidth">
-                          <select>
+                          <select name="schedule_time">
                             <option value="">Seleccione</option>
                             <option value="08:00">08:00</option>
                             <option value="09:00">09:00</option>
@@ -162,86 +168,28 @@
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="field is-horizontal pt-5">
-                  <div class="field-body">
+                  
+                  <div class="column pt-5">
                     <div class="field">
                       <div class="control">
-                        <button class="button is-primary">
+                        <button type="submit" class="button is-primary">
                           Enviar
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+              </form>
+
             </div>
           </div>
         </div>
-
       </div>
+    </div>  
 
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-8 is-offset-2">
-              <div class="card p-4">
-                <p class="is-size-4 has-text-weight-bold pb-3">Reserva de hora médica</p>
-                <p class="is-size-5 has-text-weight-bold pb-3">Datos del paciente</p>
-                  <div class="columns">
-                    <div class="column">
-                      <div class="field">
-                        <label class="label is-size-7">Nombre</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Escriba su nombre" required>
-                        </div>
-                      </div>
+    <div id="footer">
 
-                      <div class="field">
-                        <label class="label is-size-7">Género</label>
-                        <div class="control">
-                          <div class="select is-fullwidth">
-                            <select>
-                              <option value="">Seleccione</option>
-                              <option value="Femenino">Femenino</option>
-                              <option value="Masculino">Masculino</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="column">
-                      <div class="field">
-                        <label class="label is-size-7">RUT</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Escriba su RUT" required>
-                        </div>
-                      </div>
-
-                      <div class="field">
-                        <label class="label is-size-7">Fecha de nacimiento</label>
-                        <div class="control">
-                          <input class="input" type="date" placeholder="Escriba su RUT" required>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>
-
-
-    <div class="hero-foot has-background-light has-text-grey-dark p-4">
-      <nav class="tabs is-boxed is-fullwidth">
-        <div class="container">
-          <p>©Copyright 2022 Claudia Alarcón Lazo</p>
-        </div>
-      </nav>
     </div>
   </section>
 
