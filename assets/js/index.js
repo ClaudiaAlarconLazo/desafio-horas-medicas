@@ -40,9 +40,8 @@ function almacenarHora(event) {
    },
   ])
   .then(response => {
-    alert('Reserva de hora exitosa');
+    alert('Reserva de hora registrada.');
     window.location.href = "agenda.html";
-    console.log(response)
   })
   .catch(error => console.log(error));
 
@@ -79,7 +78,19 @@ function schedule() {
       cellDoctor.innerHTML = element.medico;
       cellScheduleDate.innerHTML = element.fecha_atencion;
       cellScheduleTime.innerHTML = element.hora_atencion;
-      cellButton.innerHTML =  `<button onclick="redirectDetail(${element.id})">Ver</button>`;
+      cellButton.innerHTML =  `
+      <p class="buttons">
+        <button onclick="redirectDetail(${element.id})" class="button">
+          <span class="icon is-small has-text-info">
+            <i class="fas fa-eye"></i>
+          </span>
+        </button>
+        <button onclick="deleteRegister(${element.id})" class="button">
+          <span class="icon is-small has-text-danger">
+            <i class="fas fa-trash-can"></i>
+          </span>
+        </button>
+      </p>`;
 
     })
 
@@ -91,6 +102,18 @@ function schedule() {
 
 function redirectDetail(id) {
   window.location.href = `/desafio-horas-medicas/detalle-agenda.html?id=${id}`;
+};
+
+
+async function deleteRegister(id) {
+  
+  await supabase
+  .from('hora_medica')
+  .delete()
+  .eq('id', id)
+
+  alert('Registro eliminado.');
+  window.location.href = "agenda.html";
 };
 
 /*
@@ -158,6 +181,8 @@ function detail() {
 document.addEventListener('DOMContentLoaded', () => {
   load_footer();
 
+  suscribeSupabaseEvent();
+
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -185,4 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
 async function load_footer(){
   const footer = document.getElementById('footer');
   footer.innerHTML = await (await fetch('./partials/footer.html')).text();
+}
+
+
+function suscribeSupabaseEvent() {
+  // Función que avisa si se eliminó algo
+  const deleteRow = supabase
+  .from('hora_medica')
+  .on('*', payload => {
+    console.log('Change received!', payload)
+  })
+  .subscribe()
+  const subscriptions = supabase.getSubscriptions();
+  console.log(subscriptions);
+
 }
