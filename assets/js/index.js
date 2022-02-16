@@ -179,37 +179,91 @@ function detail() {
 
 // Funciones para dar animación al html
 document.addEventListener('DOMContentLoaded', () => {
+  load_navbar();
   load_footer();
-
   suscribeSupabaseEvent();
 
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+  setTimeout(() => {
+    //Dinamizar las secciones activas en el navbar
+    const globalUrl = window.location.pathname;
+    console.log(globalUrl);
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
+    if (globalUrl === '/index.html') {
+      const indexNavbar = document.getElementById('index-nav');
+      indexNavbar.classList.add('is-active');
+      indexNavbar.classList.add('has-text-light');
+    } else if (globalUrl === '/agenda.html') {
+      const scheduleNavbar = document.getElementById('schedule-nav');
+      scheduleNavbar.classList.add('is-active');
+      scheduleNavbar.classList.add('has-text-light');
+    } else if (globalUrl === '/registro.html') {
+      const registerNavbar = document.getElementById('register-nav');
+      registerNavbar.classList.add('is-active');
+      registerNavbar.classList.add('has-text-light');
+    } else if (globalUrl === '/login.html') {
+      const loginNavbar = document.getElementById('login-nav');
+      loginNavbar.classList.add('is-active');
+      loginNavbar.classList.add('has-text-light');
+    }
 
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
 
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
       });
-    });
-  }
+    }
+
+    //Inyectar correo electrónico cuando usuario está logueado
+    const emailUser = sessionStorage.getItem('email');
+
+    if(emailUser) {
+      const emailUserContent = document.getElementById('email-user-content');
+      const loginNavbar = document.getElementById('login-nav');
+      const emailContainer = document.getElementById('email-user');
+
+      emailUserContent.classList.remove('is-hidden');
+      loginNavbar.classList.add('is-hidden');
+      emailContainer.innerHTML = emailUser;
+    } else {
+      const url = window.location.pathname;
+      const urlForbidden = ['/agenda.html'];
+      const scheduleNavbar = document.getElementById('schedule-nav');
+      scheduleNavbar.classList.add('is-hidden');
+
+      if (url !== '/login.html' && urlForbidden.includes(url)) {
+        window.location.href = 'login.html';
+      }
+    }
+  }, 100);
+
 });
 
 // Función para replicar footer en todos los html
 async function load_footer(){
   const footer = document.getElementById('footer');
   footer.innerHTML = await (await fetch('./partials/footer.html')).text();
+}
+
+// Función para replicar navbar en todos los html
+async function load_navbar(){
+  const header = document.getElementById('header');
+  header.innerHTML = await (await fetch('./partials/navbar.html')).text();
 }
 
 
@@ -224,4 +278,49 @@ function suscribeSupabaseEvent() {
   const subscriptions = supabase.getSubscriptions();
   console.log(subscriptions);
 
+}
+
+async function signUp() {
+  const { user, session, error } = await supabase.auth.signUp({
+    email: 'c.alarconlazo@gmail.com',
+    password: 'password',
+  })
+
+  console.log(user);
+  console.log(session);
+  console.log(error);
+}
+
+async function signIn(event) {
+  event.preventDefault();
+
+  const form = document.querySelector('form');
+  const formData = Object.fromEntries(new FormData(form).entries());
+
+  if (!formData.email) {
+    alert("Complete el campo de correo electrónico.");
+    return;  
+  }
+
+  if (!formData.password) {
+    alert("Complete el campo de contraseña.");
+    return;  
+  }
+
+
+  const { data, error } = await supabase.auth.signIn({
+    email: formData.email,
+    password: formData.password,
+  })
+
+  if (error) {
+    alert('Credenciales incorrectas.');
+  } else {
+    sessionStorage.setItem('token', data.access_token);
+    sessionStorage.setItem('email', data.user.email);
+    window.location.href = "agenda.html";
+  }
+
+  console.log(data);
+  console.log(error);
 }

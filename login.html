@@ -13,39 +13,8 @@
   </head>
   <body>
     <section class="hero is-info is-fullheight index">
-      <div class="hero-head">
-        <nav class="navbar has-background-light has-text-grey-dark">
-          <div class="container">
-            <div class="navbar-brand">
-              <a class="navbar-item">
-                <p class="title has-text-grey-dark">
-                  Clínica Santa María
-                </p>
-              </a>
-              <span class="navbar-burger" data-target="navbarMenuHeroB">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenuHeroB" class="navbar-menu has-background-light">
-              <div class="navbar-end has-background-light">
-                <a class="navbar-item">
-                  Home
-                </a>
-                <a class="navbar-item" href="agenda.html">
-                  Agenda
-                </a>
-                <a class="navbar-item" href="registro.html">
-                  Reserva de hora
-                </a>
-                <a class="navbar-item is-active" href="login.html">
-                  Iniciar sesión
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
+      <div id="header">
+        
       </div>
     
 
@@ -65,16 +34,16 @@
                 </div>
                 <div class="column right has-text-centered">
                   <h1 class="title is-3 pb-3">Iniciar sesión</h1>
-                  <form>
+                  <form onsubmit="signIn(event)">
                     <div class="field">
                       <div class="control">
-                        <input class="input is-medium" type="email" placeholder="Correo electrónico">
+                        <input name="email" class="input is-medium" type="email" placeholder="Correo electrónico">
                       </div>
                     </div>
     
                     <div class="field">
                       <div class="control">
-                        <input class="input is-medium" type="password" placeholder="Contraseña">
+                        <input name="password" class="input is-medium" type="password" placeholder="Contraseña">
                       </div>
                     </div>
                     <button class="button is-block is-primary is-fullwidth is-medium">Ingresar</button>
