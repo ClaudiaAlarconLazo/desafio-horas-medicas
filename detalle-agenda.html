@@ -4,84 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Horas Médicas</title>
+    <link rel="stylesheet" href="./assets/css/style.css">    
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
     <link rel="shortcut icon" href="./assets/img/reporte-de-salud.png" type="image/x-icon">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   </head>
-  <body>
-    <header>
-      <ul>
-        <li class="nav-title"><h2>Clínica Buena Salud</h2></li>
-        <li><a href="registro.html">Reserva de hora</a></li>
-        <li><a href="agenda.html">Agenda</a></li>
-        <li><a href="index.html">Inicio</a></li>
-      </ul>
-  </header>
+<body>
+  <section class="hero is-info is-fullheight">
+    <div id="header">
+        
+    </div>
 
+    <div class="hero-body">
 
-    <main>
-      <div class="detail">
-        <h3>Detalle de hora reservada</h3>
-        <p id="message"></p>
-        <h4>Datos del paciente</h4>
-        <table>
-          <tr>
-            <th>Paciente</th>
-            <td id="name">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>RUT</th>
-            <td id="rut">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Género</th>
-            <td id="gender">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Fecha de nacimiento</th>
-            <td id="date">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Enfermedades</th>
-            <td id="diseases">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Medicamentos</th>
-            <td id="drugs">&nbsp;</td>
-          </tr>
-        </table>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <div class="card p-6">
+              <p class="is-size-4 has-text-weight-bold mb-5">Detalle de hora reservada</p>
+              <p id="message"></p>
+              <p class="is-size-5 has-text-weight-bold">Datos del paciente</p>
+              <table class="table is-narrow is-hoverable is-fullwidth mt-4">
+                <tr>
+                  <th>Nombre</th>
+                  <td id="name">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>RUT</th>
+                  <td id="rut">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Género</th>
+                  <td id="gender">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Fecha de nacimiento</th>
+                  <td id="date">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Enfermedades</th>
+                  <td id="diseases">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Medicamentos</th>
+                  <td id="drugs">&nbsp;</td>
+                </tr>
+              </table>
 
-        <h4>Datos de la hora de atención</h4>
-        <table>
-          <tr>
-            <th>Médico</th>
-            <td id="doctor">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Fecha de atención</th>
-            <td id="schedule-date">&nbsp;</td>
-          </tr>
-          <tr>
-            <th>Hora de atención</th>
-            <td id="schedule-time">&nbsp;</td>
-          </tr>
-        </table>
-
+              <p class="is-size-5 has-text-weight-bold pt-4">Datos de la reserva</p>
+              <table class="table is-narrow is-hoverable is-fullwidth mt-4">
+                <tr>
+                  <th>Médico</th>
+                  <td id="doctor">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Fecha de atención</th>
+                  <td id="schedule-date">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>Hora de atención</th>
+                  <td id="schedule-time">&nbsp;</td>
+                </tr>
+              </table>
+            </div>           
+          </div>
+        </div>
       </div>
+    </div>
+    <div id="footer">
 
-    </main>
+    </div>
+  </section>
 
-
-    <footer>
-      <p>©Copyright 2022 Claudia Alarcón Lazo</p>
-    </footer>
-  
-    <script src="./assets/js/index.js"></script>
-    <script>
-      detail();
-    </script>
-  
-  
+  <script src="./assets/js/index.js"></script>
+  <script>
+    detail();
+  </script>
 </body>
 </html>

@@ -101,7 +101,7 @@ function schedule() {
 
 
 function redirectDetail(id) {
-  window.location.href = `/desafio-horas-medicas/detalle-agenda.html?id=${id}`;
+  window.location.href = `detalle-agenda.html?id=${id}`;
 };
 
 
