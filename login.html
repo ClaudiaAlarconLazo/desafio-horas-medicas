@@ -22,7 +22,7 @@
         <div class="container p-5">
           <div class="columns is-multiline">
             <div class="column is-8 is-offset-2 register">
-              <div class="columns">
+              <div class="columns has-background-grey-lighter p-6">
                 <div class="column left">
                   <h1 class="title is-1">Clínica en Línea</h1>
                   <h2 class="subtitle colored is-4 pt-3">Sigue nuestros consejos de seguridad.</h2>
@@ -35,16 +35,18 @@
                 <div class="column right has-text-centered">
                   <h1 class="title is-3 pb-3">Iniciar sesión</h1>
                   <form onsubmit="signIn(event)">
-                    <div class="field">
+                    <div class="field has-text-left">
                       <div class="control">
-                        <input name="email" class="input is-medium" type="email" placeholder="Correo electrónico">
+                        <input id="email" name="email" class="input is-medium" type="email" placeholder="Correo electrónico" oninput="validationInputEmail()" onblur="validationInputEmail()">
                       </div>
+                      <p id="email-help" class="help is-danger is-hidden"></p>
                     </div>
     
-                    <div class="field">
+                    <div class="field has-text-left">
                       <div class="control">
-                        <input name="password" class="input is-medium" type="password" placeholder="Contraseña">
+                        <input id="password" name="password" class="input is-medium" type="password" placeholder="Contraseña" oninput="validationInputPassword()" onblur="validationInputPassword()">
                       </div>
+                      <p id="password-help" class="help is-danger is-hidden"></p>
                     </div>
                     <button class="button is-block is-primary is-fullwidth is-medium">Ingresar</button>
                     <br />

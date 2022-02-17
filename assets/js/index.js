@@ -3,6 +3,7 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 
 var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
 
+//Función para registrar una reserva de hora que se activa con el evento onsubmit en componente formulario
 function almacenarHora(event) {
   event.preventDefault();
   console.log(event);
@@ -10,19 +11,12 @@ function almacenarHora(event) {
   const form = document.querySelector('form');
   const data = Object.fromEntries(new FormData(form).entries());
 
-  if (!data.gender) {
-    alert("Seleccione género");
-    return;  
-  }
+  //const isValidName = validationInputName();
+  const isValidRut = validationInputRut();
+  const isValidGender = validationSelectGender();
 
-  if (!data.schedule_time) {
-    alert("Seleccione hora de atención");
-    return;  
-  }
-
-  if (!data.doctor) {
-    alert("Seleccione médico");
-    return;  
+  if (!isValidName || !isValidRut || !isValidGender) {
+    return
   }
 
   supabase.from('hora_medica')
@@ -35,8 +29,8 @@ function almacenarHora(event) {
     enfermedades: data.diseases,
     medicamentos: data.drugs,
     medico: data.doctor,
-    fecha_atencion: data.schedule_date,
-    hora_atencion: data.schedule_time,
+    fecha_atencion: data.schedule-date,
+    hora_atencion: data.schedule-time,
    },
   ])
   .then(response => {
@@ -183,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
   load_footer();
   suscribeSupabaseEvent();
 
-
   setTimeout(() => {
     //Dinamizar las secciones activas en el navbar
     const globalUrl = window.location.pathname;
@@ -280,6 +273,7 @@ function suscribeSupabaseEvent() {
 
 }
 
+//Función que permite generar usuarios registrados en la aplicación
 async function signUp() {
   const { user, session, error } = await supabase.auth.signUp({
     email: 'c.alarconlazo@gmail.com',
@@ -291,20 +285,17 @@ async function signUp() {
   console.log(error);
 }
 
+//Función para iniciar sesión que se activa con el evento onsubmit en componente formulario
 async function signIn(event) {
   event.preventDefault();
-
   const form = document.querySelector('form');
   const formData = Object.fromEntries(new FormData(form).entries());
 
-  if (!formData.email) {
-    alert("Complete el campo de correo electrónico.");
-    return;  
-  }
+  const isValidEmail = validationInputEmail();
+  const isValidPassword = validationInputPassword();
 
-  if (!formData.password) {
-    alert("Complete el campo de contraseña.");
-    return;  
+  if (!isValidEmail || !isValidPassword) {
+    return
   }
 
 
@@ -323,4 +314,132 @@ async function signIn(event) {
 
   console.log(data);
   console.log(error);
+}
+
+//Función para validar email con expresión regular
+function emailValidation(email) {
+  if (email !== '') {
+    const regExpEmail = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+
+    const validation = regExpEmail.test(email);
+  
+    return validation;
+  }
+  return true;
+}
+
+//Función para validar el contenido vacío de un input
+function requiredValidation(value) {
+  if (value === '' || value === undefined || value === null || value.length === 0) {
+    return false;
+  }
+  return true;
+}
+
+//Función para validar el tamaño del contenido de un input
+function lenghtValidation(value, lenght) {
+  if (value.length < lenght) {
+    return false;
+  }
+  return true;
+}
+
+//Función para validar el contenido del input email
+function validationInputEmail() {
+  const email = document.getElementById('email').value;
+  const emailForm = document.getElementById('email');
+  const emailHelp = document.getElementById('email-help');
+
+  if (!emailValidation(email)) {
+    emailForm.classList.add('is-danger');
+    emailHelp.classList.remove('is-hidden');
+    emailHelp.innerHTML = 'El correo electrónico es inválido';
+    return false;
+  } else if (!requiredValidation(email)) {
+    emailForm.classList.add('is-danger');
+    emailHelp.classList.remove('is-hidden');
+    emailHelp.innerHTML = 'El correo electrónico es requerido';
+    return false;
+  } else{
+    emailForm.classList.remove('is-danger');
+    emailHelp.classList.add('is-hidden');
+    emailHelp.innerHTML = '';
+    return true;
+  }
+
+}
+
+//Función para validar el contenido del input password
+function validationInputPassword(){
+  const password = document.getElementById('password').value;
+  const passwordForm = document.getElementById('password');
+  const passwordHelp = document.getElementById('password-help');
+
+  if (!requiredValidation(password)) {
+    passwordForm.classList.add('is-danger');
+    passwordHelp.classList.remove('is-hidden');
+    passwordHelp.innerHTML = 'La contraseña es requerida';
+    return false;
+  } else if (!lenghtValidation(password, 3)) {
+    passwordForm.classList.add('is-danger');
+    passwordHelp.classList.remove('is-hidden');
+    passwordHelp.innerHTML = 'La contraseña debe tener más de 3 caracteres';
+    return false;
+  } else {
+    passwordForm.classList.remove('is-danger');
+    passwordHelp.classList.add('is-hidden');
+    passwordHelp.innerHTML = '';
+    return true;
+  }
+}
+
+//Función para validar contenido de input name
+function validationInputName() {
+  const name = document.getElementById('name').value;
+  const nameForm = document.getElementById('name');
+  const nameHelp = document.getElementById('name-help');
+
+  if (!requiredValidation(name)) {
+    nameForm.classList.add('is-danger');
+    nameHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    nameForm.classList.remove('is-danger');
+    nameHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de input rut
+function validationInputRut() {
+  const rut = document.getElementById('rut').value;
+  const rutForm = document.getElementById('rut');
+  const rutHelp = document.getElementById('rut-help');
+
+  if (!requiredValidation(rut)) {
+    rutForm.classList.add('is-danger');
+    rutHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    rutForm.classList.remove('is-danger');
+    rutHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de select gender
+function validationSelectGender() {
+  const gender = document.getElementById('gender').value;
+  const genderForm = document.getElementById('gender');
+  const genderHelp = document.getElementById('gender-help');
+  console.log(gender);
+  if (!requiredValidation(gender)) {
+    genderForm.classList.add('is-danger');
+    genderHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    genderForm.classList.remove('is-danger');
+    genderHelp.classList.add('is-hidden');
+    return true;
+  }
 }
