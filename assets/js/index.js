@@ -11,11 +11,15 @@ function almacenarHora(event) {
   const form = document.querySelector('form');
   const data = Object.fromEntries(new FormData(form).entries());
 
-  //const isValidName = validationInputName();
+  const isValidName = validationInputName();
   const isValidRut = validationInputRut();
   const isValidGender = validationSelectGender();
+  const isValidDate = validationInputDate();
+  const isValidDoctor = validationSelectDoctor();
+  const isValidScheduleDate = validationInputScheduleDate();
+  const isValidScheduleTime = validationSelectScheduleTime();
 
-  if (!isValidName || !isValidRut || !isValidGender) {
+  if ( !isValidName || !isValidRut || !isValidGender || !isValidDate || !isValidDoctor || !isValidScheduleDate || !isValidScheduleTime ) {
     return
   }
 
@@ -430,9 +434,9 @@ function validationInputRut() {
 //Función para validar contenido de select gender
 function validationSelectGender() {
   const gender = document.getElementById('gender').value;
-  const genderForm = document.getElementById('gender');
+  const genderForm = document.getElementById('gender-select');
   const genderHelp = document.getElementById('gender-help');
-  console.log(gender);
+
   if (!requiredValidation(gender)) {
     genderForm.classList.add('is-danger');
     genderHelp.classList.remove('is-hidden');
@@ -440,6 +444,74 @@ function validationSelectGender() {
   } else {
     genderForm.classList.remove('is-danger');
     genderHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de input date
+function validationInputDate() {
+  const date = document.getElementById('date').value;
+  const dateForm = document.getElementById('date');
+  const dateHelp = document.getElementById('date-help');
+
+  if (!requiredValidation(date)) {
+    dateForm.classList.add('is-danger');
+    dateHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    dateForm.classList.remove('is-danger');
+    dateHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de select doctor
+function validationSelectDoctor() {
+  const doctor = document.getElementById('doctor').value;
+  const doctorForm = document.getElementById('doctor-select');
+  const doctorHelp = document.getElementById('doctor-help');
+
+  if (!requiredValidation(doctor)) {
+    doctorForm.classList.add('is-danger');
+    doctorHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    doctorForm.classList.remove('is-danger');
+    doctorHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de input scheduleDate
+function validationInputScheduleDate() {
+  const scheduleDate = document.getElementById('schedule-date').value;
+  const scheduleDateForm = document.getElementById('schedule-date');
+  const scheduleDateHelp = document.getElementById('schedule-date-help');
+
+  if (!requiredValidation(scheduleDate)) {
+    scheduleDateForm.classList.add('is-danger');
+    scheduleDateHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    scheduleDateForm.classList.remove('is-danger');
+    scheduleDateHelp.classList.add('is-hidden');
+    return true;
+  }
+}
+
+//Función para validar contenido de select scheduleTime
+function validationSelectScheduleTime() {
+  const scheduleTime = document.getElementById('schedule-time').value;
+  const scheduleTimeForm = document.getElementById('schedule-time-select');
+  const scheduleTimeHelp = document.getElementById('schedule-time-help');
+  console.log(gender);
+  if (!requiredValidation(scheduleTime)) {
+    scheduleTimeForm.classList.add('is-danger');
+    scheduleTimeHelp.classList.remove('is-hidden');
+    return false;
+  } else {
+    scheduleTimeForm.classList.remove('is-danger');
+    scheduleTimeHelp.classList.add('is-hidden');
     return true;
   }
 }

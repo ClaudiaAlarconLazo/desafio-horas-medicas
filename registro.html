@@ -33,7 +33,7 @@
                     <div class="field">
                       <label class="label is-size-7">Nombre</label>
                       <div class="control">
-                        <input id="name" name="name" class="input" type="text" placeholder="Escriba su nombre" required oninput="validationInputName()" onblur="validationInputName()">
+                        <input id="name" name="name" class="input" type="text" placeholder="Escriba su nombre"  oninput="validationInputName()" onblur="validationInputName()">
                         <p id="name-help" class="help is-danger is-hidden">El nombre es requerido</p>
                       </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="field">
                       <label class="label is-size-7">RUT</label>
                       <div class="control">
-                        <input id="rut" name="rut" class="input" type="text" placeholder="Escriba su RUT" required oninput="validationInputRut()" onblur="validationInputRut()">
+                        <input id="rut" name="rut" class="input" type="text" placeholder="Escriba su RUT" oninput="validationInputRut()" onblur="validationInputRut()">
                         <p id="rut-help" class="help is-danger is-hidden">El RUT es requerido</p>
                       </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="field">
                       <label class="label is-size-7">Género</label>
                       <div class="control">
-                        <div class="select is-fullwidth">
+                        <div class="select is-fullwidth" id="gender-select">
                           <select id="gender" name="gender" oninput="validationSelectGender()" onblur="validationSelectGender()">
                             <option value="">Seleccione</option>
                             <option value="Femenino">Femenino</option>
@@ -69,7 +69,7 @@
                     <div class="field">
                       <label class="label is-size-7">Fecha de nacimiento</label>
                       <div class="control">
-                        <input id="date" name="date" class="input" type="date" placeholder="" required>
+                        <input id="date" name="date" class="input" type="date" placeholder="" oninput="validationInputDate()" onblur="validationInputDate()">
                         <p id="date-help" class="help is-danger is-hidden">La fecha de nacimiento es requerida</p>
                       </div>
                     </div>
@@ -100,14 +100,14 @@
                     <div class="field">
                       <label class="label is-size-7">Profesional</label>
                       <div class="control">
-                        <div class="select is-fullwidth">
-                          <select id="doctor" name="doctor">
+                        <div class="select is-fullwidth" id="doctor-select">
+                          <select id="doctor" name="doctor" oninput="validationSelectDoctor()" onblur="validationSelectDoctor()">
                             <option value="">Seleccione</option>
                             <option value="Roberto Araneda">Roberto Araneda</option>
                             <option value="Javiera Alarcón">Javiera Alarcón</option>
                           </select>
                         </div>
-                        <p id="doctor-helper" class="help is-danger is-hidden">El nombre del profesional es requerido</p>
+                        <p id="doctor-help" class="help is-danger is-hidden">El nombre del profesional es requerido</p>
                       </div>
                     </div>
                   </div>
@@ -116,7 +116,7 @@
                     <div class="field">
                       <label class="label is-size-7">Fecha de atención</label>
                       <div class="control">
-                        <input id="schedule-date" name="schedule-date" class="input" type="date" placeholder="" required>
+                        <input id="schedule-date" name="schedule-date" class="input" type="date" placeholder="" oninput="validationInputScheduleDate()" onblur="validationInputScheduleDate()">
                         <p id="schedule-date-help" class="help is-danger is-hidden">La fecha de atención es requerida</p>
                       </div>
                     </div> 
@@ -126,8 +126,8 @@
                     <div class="field">
                       <label class="label is-size-7">Hora de atención</label>
                       <div class="control">
-                        <div class="select is-fullwidth">
-                          <select id="schedule-time" name="schedule-time">
+                        <div class="select is-fullwidth" id="schedule-time-select">
+                          <select id="schedule-time" name="schedule-time" oninput="validationSelectScheduleTime()" onblur="validationSelectScheduleTime()">
                             <option value="">Seleccione</option>
                             <option value="08:00">08:00</option>
                             <option value="09:00">09:00</option>
