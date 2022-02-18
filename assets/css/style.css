@@ -28,6 +28,10 @@
   height: 250px;
 }
 
+/* Login */ 
+.login-container {
+  border-radius: 10px;
+}
 /* Formulario */
 select {
   width: 100%;
